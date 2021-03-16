@@ -20,7 +20,7 @@ class Book extends Model
         return $this->belongsTo(User::class,'user_id');
     }
 
-    public function product() {
+    public function photographer() {
         return $this->belongsTo(Photographer::class,'photographer_id');
     }
 

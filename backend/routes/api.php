@@ -30,12 +30,13 @@ Route::get('/clear-cache', function() {
 
 Route::post('/register','Api\UserController@register');
 
-/**Posts */
+/** POSTS */
 Route::get('/show-posts', [PostController::class,'show']);
 Route::post('/posts', [PostController::class,'post']);
 Route::patch('update-post/{posts}/', [PostController::class,'update']);
 Route::post('/upload-file', [PostController::class,'uploadFile']);
 Route::get('/delete-posts/{post}', [PostController::class,'destroy']);
 
+/** BOOKING*/
 
 
