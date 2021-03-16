@@ -1,0 +1,30 @@
+## Process of folder backend.
+
+1. Documents
+- code blog laravel
+  + https://www.youtube.com/watch?v=2yYix8dPUmM&t=1464s
+- passport authentication  
+  + https://laravel.com/docs/7.x/passport
+  
+
+2. Done 
+  2.1. Hoan thanh tao database simple voi cac bang chinh
+  2.2. Install laravel 7
+  2.3 Install laravel/ui:^2.4
+  2.4 Install lavel/passport
+  2.5 Declare passport in User model, providers/AuthServiceProvider, config/Auth
+  2.6 Create controller login and register
+  2.7 Just create file api
+  2.8 Create UserRequest
+  + To validate data when user enter
+  2.9 Declare request in Model User
+  2.10 Create router register
+
+3. Doing
+  - 
+
+
+4. Fixed
+  4.1 L
+5. Fixing
+   1.
