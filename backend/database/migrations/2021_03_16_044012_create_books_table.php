@@ -14,7 +14,12 @@ class CreateBooksTable extends Migration
     public function up()
     {
         Schema::create('books', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->foreignId('user_id');
+            $table->foreignId('photographer_id');
+            $table->boolean('is_cancel')->default(false);
+            $table->dateTime('start_date');
+            $table ->dateTime('hours');
             $table->timestamps();
         });
     }

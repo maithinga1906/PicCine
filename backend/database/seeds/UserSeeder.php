@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Generator as Faker;
 
 class UserSeeder extends Seeder
 {
@@ -9,37 +10,35 @@ class UserSeeder extends Seeder
      *
      * @return void
      */
-    $table->string('username');
-    $table->string('password');
-    $table->timestamp('password_verified_at')->nullable();
-    $table->string('numberPhone');
-    $table->string('email')->unique();
-    $table->date('birthdate');
-    $table->string('address');
-    $table->string('gender');
-    $table->string('role');
-    public function run()
+    public function run(Faker $faker)
     {
-        DB::table('categories')->insert([
-            ['username'=>'',
-            'password'=>'',
-            'password_verified_at'=>'',
-            'numberPhone'=>'',
-            'email'=>'',
-            'birthdate'=>'',
-            'address'=>'',
-            'gender'=>'',
-            'role'=>''
+        DB::table('users')->insert([
+            ['username'=>'admin',
+            'password'=>bcrypt('adminstrator'),
+            'numberPhone' => $faker->phoneNumber,
+            'email' => $faker->unique()->email,
+            'birthdate'=>$faker->dateTimeBetween('1990-01-01', '2010-12-31')->format('Y-m-d'),
+            'address'=>'101B, Le Huu Trac, Phuoc My, Son Tra, Da Nang',
+            'gender'=>'nu',
+            'role'=>'admin',
             ],
-            ['username'=>'',
-            'password'=>'',
-            'password_verified_at'=>'',
-            'numberPhone'=>'',
-            'email'=>'',
-            'birthdate'=>'',
-            'address'=>'',
-            'gender'=>'',
-            'role'=>''
+            ['username'=>'photographer',
+            'password'=>bcrypt('photographer'),
+            'numberPhone' => $faker->phoneNumber,
+            'email' => $faker->unique()->email,
+            'birthdate'=>$faker->dateTimeBetween('1990-01-01', '2010-12-31')->format('Y-m-d'),
+            'address'=>'101B, Le Huu Trac, Phuoc My, Son Tra, Da Nang',
+            'gender'=>'nu',
+            'role'=>'photographer',
+        ],
+        ['username'=>'user',
+            'password'=>bcrypt('user'),
+            'numberPhone' => $faker->phoneNumber,
+            'email' => $faker->unique()->email,
+            'birthdate'=>$faker->dateTimeBetween('1990-01-01', '2010-12-31')->format('Y-m-d'),
+            'address'=>'101B, Le Huu Trac, Phuoc My, Son Tra, Da Nang',
+            'gender'=>'nu',
+            'role'=>'user',
             ]
         ]);
     }

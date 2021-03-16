@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,8 @@ Route::get('/clear-cache', function() {
 
 
 Route::post('/register','Api\UserController@register');
+Route::get('/show-post', [PostController::class,'show']);
+Route::post('/posts', [PostController::class,'post']);
 
 
 
