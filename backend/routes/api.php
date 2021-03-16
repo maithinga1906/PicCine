@@ -29,8 +29,13 @@ Route::get('/clear-cache', function() {
 
 
 Route::post('/register','Api\UserController@register');
-Route::get('/show-post', [PostController::class,'show']);
+
+/**Posts */
+Route::get('/show-posts', [PostController::class,'show']);
 Route::post('/posts', [PostController::class,'post']);
+Route::patch('update-post/{posts}/', [PostController::class,'update']);
+Route::post('/upload-file', [PostController::class,'uploadFile']);
+Route::get('/delete-posts/{post}', [PostController::class,'destroy']);
 
 
 
