@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\BookingController;
+use App\Http\Controllers\Api\StyleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,11 +34,17 @@ Route::post('/register','Api\UserController@register');
 
 /** POSTS */
 Route::get('/show-posts', [PostController::class,'show']);
-Route::post('/posts', [PostController::class,'post']);
+Route::post('/add-post', [PostController::class,'post']);
 Route::patch('update-post/{posts}/', [PostController::class,'update']);
 Route::post('/upload-file', [PostController::class,'uploadFile']);
-Route::get('/delete-posts/{post}', [PostController::class,'destroy']);
+Route::get('/delete-post/{post}', [PostController::class,'destroy']);
 
 /** BOOKING*/
+Route::post('/booking', [BookingController::class,'booking']);
 
+/**CATEGORIES */
+Route::get('/show-styles', [StyleController::class,'show']);
+Route::post('/add-style', [StyleController::class,'post']);
+Route::patch('update-style/{styles}/', [StyleController::class,'update']);
+Route::get('/delete-style/{styles}', [StyleController::class,'destroy']);
 

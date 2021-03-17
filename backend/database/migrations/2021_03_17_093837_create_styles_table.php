@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePhotographersTable extends Migration
+class CreateStylesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreatePhotographersTable extends Migration
      */
     public function up()
     {
-        Schema::create('photographers', function (Blueprint $table) {
+        Schema::create('styles', function (Blueprint $table) {
             $table->increments('id');
-            $table->String('fullname');
-            $table->String('type');
-            $table->boolean('is_online')->default(false);
-            $table->foreignId('user_id');
-            $table->timestamp('created_at')->nullable();
+            $table->String('image');
+            $table->String("name");
+            $table->String('price');
+            $table->timestamps();
         });
     }
 
@@ -30,6 +29,6 @@ class CreatePhotographersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('photographers');
+        Schema::dropIfExists('styles');
     }
 }
