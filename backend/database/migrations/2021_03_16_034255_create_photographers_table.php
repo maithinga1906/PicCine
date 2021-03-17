@@ -15,7 +15,6 @@ class CreatePhotographersTable extends Migration
     {
         Schema::create('photographers', function (Blueprint $table) {
             $table->increments('id');
-            $table->String('fullname');
             $table->boolean('is_online')->default(false);
             $table->foreignId('user_id');
             $table->timestamp('created_at')->nullable();
