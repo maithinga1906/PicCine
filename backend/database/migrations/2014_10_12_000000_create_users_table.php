@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('address');
             $table->string('gender');
             $table->string('role');
-            $table->rememberToken();
+            $table->boolean('is_online')->default(false);
             $table->timestamps();
         });
     }

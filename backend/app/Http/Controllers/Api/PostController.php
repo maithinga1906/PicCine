@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
 use Carbon\Carbon;
-
+use App\Style;
 class PostController extends Controller
 {
 // Show all the posts
@@ -19,10 +19,11 @@ class PostController extends Controller
     public function post(Request $request)
     {
         $posts = Post::create([
-            'photographer_id' => $request->photographer_id,
+            'user_id' => $request->user_id,
             'title' => $request->title,
             'content' => $request->content,
             'image'=>$request->image,
+            'style_id' => $request->style_id,
             'created_at'=>Carbon::now()->format('Y-m-d H:i:s')
                 ]);
         return response()->json(['data'=>$posts]);
@@ -32,7 +33,7 @@ class PostController extends Controller
     public function update(Request $request, Post $posts)
     {
         $update_post = $posts->update(
-            $request->only(['title', 'content', 'image'])
+            $request->only(['title', 'content', 'image','style_id'])
         );
 
         return response()->json([
