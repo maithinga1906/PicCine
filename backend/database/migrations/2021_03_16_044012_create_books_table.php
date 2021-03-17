@@ -16,7 +16,6 @@ class CreateBooksTable extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->increments('id');
             $table->foreignId('user_id');
-            $table->foreignId('photographer_id');
             $table->boolean('is_cancel')->default(false);
             $table->dateTime('start_date');
             $table ->dateTime('hours');
