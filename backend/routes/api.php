@@ -44,7 +44,7 @@ Route::post('/booking', [BookingController::class,'booking']);
 
 /**CATEGORIES */
 Route::get('/show-styles', [StyleController::class,'show']);
-Route::post('/add-style', [StyleController::class,'post']);
+Route::post('/add-style', [StyleController::class,'store']);
 Route::patch('update-style/{styles}/', [StyleController::class,'update']);
 Route::get('/delete-style/{styles}', [StyleController::class,'destroy']);
 
