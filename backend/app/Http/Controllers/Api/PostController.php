@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Post;
 use Carbon\Carbon;
 use App\Style;
+use DB;
+
 class PostController extends Controller
 {
 // Show all the posts
@@ -60,4 +62,16 @@ class PostController extends Controller
             'status' => $status
         ]);
     }
+// search name or posts by photographer or category 
+        public function search(Request $request){
+            $search_key =$request->search;
+
+           $search= DB::table('posts as p')
+            ->join('styles as s', 'p.style_id', '=', 's.id')
+            ->join('users as u', 'p.user_id', '=', 'u.id')
+            ->where('title','LIKE','%'.$search_key.'%')
+            ->orWhere('s.name','LIKE','%'.$search_key.'%')
+            ->orWhere('u.username','LIKE','%'.$search_key.'%')->get();
+            return response()->json($search,200);
+        }
 }

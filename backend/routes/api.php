@@ -37,6 +37,8 @@ Route::post('/add-post', [PostController::class,'post']);
 Route::patch('update-post/{posts}/', [PostController::class,'update']);
 Route::post('/upload-file', [PostController::class,'uploadFile']);
 Route::get('/delete-post/{post}', [PostController::class,'destroy']);
+// search
+Route::post('/home/search', [PostController::class,'search']);
 
 /** BOOKING*/
 Route::post('/booking', [BookingController::class,'booking']);

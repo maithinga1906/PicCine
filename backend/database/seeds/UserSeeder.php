@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'birthdate'=>$faker->dateTimeBetween('1990-01-01', '2010-12-31')->format('Y-m-d'),
             'address'=>'101B, Le Huu Trac, Phuoc My, Son Tra, Da Nang',
             'gender'=>'nu',
-            'role'=>'admin',
+            'role_id'=>1,
             'is_online'=>true,
             ],
             ['username'=>'photographer',
@@ -30,7 +30,7 @@ class UserSeeder extends Seeder
             'birthdate'=>$faker->dateTimeBetween('1990-01-01', '2010-12-31')->format('Y-m-d'),
             'address'=>'101B, Le Huu Trac, Phuoc My, Son Tra, Da Nang',
             'gender'=>'nu',
-            'role'=>'photographer',
+            'role_id'=>2,
             'is_online'=>true,
         ],
         ['username'=>'user',
@@ -40,7 +40,7 @@ class UserSeeder extends Seeder
             'birthdate'=>$faker->dateTimeBetween('1990-01-01', '2010-12-31')->format('Y-m-d'),
             'address'=>'101B, Le Huu Trac, Phuoc My, Son Tra, Da Nang',
             'gender'=>'nu',
-            'role'=>'user',
+            'role_id'=>3,
             'is_online'=>true,
             ]
         ]);

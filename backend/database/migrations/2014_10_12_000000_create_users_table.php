@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->dateTime('birthdate');
             $table->string('address');
             $table->string('gender');
-            $table->string('role');
+            $table->foreignId('role_id');
             $table->boolean('is_online')->default(false);
             $table->timestamps();
         });

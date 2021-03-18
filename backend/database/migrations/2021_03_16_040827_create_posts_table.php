@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->longText('content');
             $table->String('image');
             $table->foreignId('user_id');
+            $table->foreignId('style_id');
             $table->timestamps();
         });
     }
