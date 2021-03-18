@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\StyleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,6 @@ Route::post('/booking', [BookingController::class,'booking']);
 
 /**CATEGORIES */
 Route::get('/show-styles', [StyleController::class,'show']);
-Route::post('/add-style', [StyleController::class,'post']);
+Route::post('/add-style', [StyleController::class,'store']);
 Route::patch('update-style/{styles}/', [StyleController::class,'update']);
 Route::get('/delete-style/{styles}', [StyleController::class,'destroy']);

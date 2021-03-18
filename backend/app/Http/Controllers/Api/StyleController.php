@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Style;
+
 class StyleController extends Controller
 {
   // Show all the Styles
@@ -14,7 +15,7 @@ class StyleController extends Controller
   }
 
 // add new style
-  public function Style(Request $request)
+  public function store(Request $request)
   {
       $styles = Style::create([
           'image' => $request->image,
