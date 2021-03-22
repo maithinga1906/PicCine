@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVouchersTable extends Migration
+class CreateBookingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateVouchersTable extends Migration
      */
     public function up()
     {
-        Schema::create('vouchers', function (Blueprint $table) {
+        Schema::create('booking', function (Blueprint $table) {
             $table->increments('id');
-            $table->String('name');
-            $table->String('code');
-            $table->unsignedInteger('count')->default(1);
-            $table->float('denominations');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->foreignId('user_id');
+            $table->foreignId('photographer_id');
+            $table->dateTime('create_time');
+            $table->foreignId('combo_id');
+            $table->boolean('is_cancel')->default(false);
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateVouchersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vouchers');
+        Schema::dropIfExists('booking');
     }
 }
