@@ -6,11 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Booking extends Model
 {
-    use HasFactory;
-   
-    public $timestamps = false;
-    
-    
+    // use HasFactory;
+
     protected $fillable=[
         'id_user','id_photographer','id_combo','is_cancel'
     ];
@@ -27,7 +24,7 @@ class Booking extends Model
     }
     public function combo()
     {
-        return $this->hasMany('App\Combe','id_combo','id');
+        return $this->hasMany('App\Combo','id_combo','id');
     }
 }
 
