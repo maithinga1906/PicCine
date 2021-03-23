@@ -17,6 +17,6 @@ class Roles extends Model
     protected $table ='roles';
     public function user()
     {
-        return $this->belongsTo('App\Post','id_user','id');
+        return $this->belongsTo('App\Post','id','id_post');
     }
 }
