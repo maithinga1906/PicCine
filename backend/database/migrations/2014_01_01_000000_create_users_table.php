@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('id_roles');
             $table->string('phone');
             $table->string('email')->unique();
-            $table->string('token'); 
+            $table->rememberToken();
             $table->string('name'); 
             $table->timestamps();
         });

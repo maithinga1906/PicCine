@@ -33,10 +33,12 @@ create table combo(
 create table users(
 	id int auto_increment,
     username varchar(50),
+	email varchar(70),
     passwordd varchar(255),
     id_roles int,
     phone numeric,
     namee varchar(50),
+    token varchar(255),
     primary key(id),
     foreign key (id_roles) references roles(id)
 );
@@ -78,21 +80,21 @@ create table detail_booking(
 --     phone numeric
 -- );
 
-
+create table post(
+	id int auto_increment,
+    id_photographer int,
+    primary key(id),
+    foreign key(id_photographer) references users(id)
+);
 create table post_detail(
 	id int auto_increment,
     title varchar(50),
     content varchar(255),
     img varchar(255),
+	id_post int,
+    foreign key(id_post) references post(id),
     primary key(id)
 );
 
-create table post(
-	id int auto_increment,
-    id_photographer int,
-    id_post int,
-    primary key(id),
-    foreign key(id_photographer) references users(id),
-    foreign key(id_post) references post_detail(id)
-);
+
 
