@@ -1450,6 +1450,7 @@
         },
         {
             "name": "lcobucci/jwt",
+<<<<<<< HEAD
             "version": "3.4.5",
             "source": {
                 "type": "git",
@@ -1460,6 +1461,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/lcobucci/jwt/zipball/511629a54465e89a31d3d7e4cf0935feab8b14c1",
                 "reference": "511629a54465e89a31d3d7e4cf0935feab8b14c1",
+=======
+            "version": "4.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lcobucci/jwt.git",
+                "reference": "cefaeb37709c719a2e788dff0bf1ad4064c71ba2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/cefaeb37709c719a2e788dff0bf1ad4064c71ba2",
+                "reference": "cefaeb37709c719a2e788dff0bf1ad4064c71ba2",
+>>>>>>> a1c99235f476e4f7f1095c7efacb4d254f0f933e
                 "shasum": ""
             },
             "require": {
@@ -1511,7 +1524,11 @@
             ],
             "support": {
                 "issues": "https://github.com/lcobucci/jwt/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/lcobucci/jwt/tree/3.4.5"
+=======
+                "source": "https://github.com/lcobucci/jwt/tree/4.0.2"
+>>>>>>> a1c99235f476e4f7f1095c7efacb4d254f0f933e
             },
             "funding": [
                 {
@@ -1523,7 +1540,11 @@
                     "type": "patreon"
                 }
             ],
+<<<<<<< HEAD
             "time": "2021-02-16T09:40:01+00:00"
+=======
+            "time": "2021-03-19T20:51:49+00:00"
+>>>>>>> a1c99235f476e4f7f1095c7efacb4d254f0f933e
         },
         {
             "name": "league/commonmark",
