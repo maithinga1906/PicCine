@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommentsTable extends Migration
+class CreateVouchersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
-            $table->increments('id');
-            $table->longText('content');
-            $table->String('image');
-            $table->foreignId('user_id');
-            $table->foreignId('post_id');
+        Schema::create('vouchers', function (Blueprint $table) {
+            $table->id();
+            $table->String('name');
+            $table->String('code');
+            $table->String('description');
+            $table->integer('count');
+            $table->integer('denominations');
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('vouchers');
     }
 }
