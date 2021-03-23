@@ -3,23 +3,30 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-use App\User;
-use App\Style;
 class Post extends Model
 {
-    public $table="posts";
-
-    protected $fillable = [
-     'title', 'content', 'image','user_id','style_id', 'created_at','updated_at'
+    use HasFactory;
+    
+    public $timestamps = false;
+    
+    
+    protected $fillable=[
+        'id_photographer'
     ];
 
-    public function user() {
-        return $this->belongsTo(User::class,'user_id');
-    }
-    public function style() {
-        return $this->belongsTo(Style::class,'style_id');
+    protected $primarykey ='id';
+    protected $table ='post';
+    
+    public function photographer()
+    {
+        return $this->hasMany('App\User','id','id_photographer');
     }
 
+    public function detail()
+    {
+        return $this->belongsTo('App\PostDetail','id_post','id');
+    }
+
+    
 }
