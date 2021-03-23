@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVouchersTable extends Migration
+class CreateDetailPostTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateVouchersTable extends Migration
      */
     public function up()
     {
-        Schema::create('vouchers', function (Blueprint $table) {
+        Schema::create('detail_post', function (Blueprint $table) {
             $table->id();
-            $table->String('name');
-            $table->String('code');
-            $table->String('description');
-            $table->integer('count');
-            $table->integer('denominations');
+            $table->string('title');
+            $table->string('content');
+            $table->string('image');
+            $table->foreignId('id_post');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateVouchersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vouchers');
+        Schema::dropIfExists('detail_post');
     }
 }
