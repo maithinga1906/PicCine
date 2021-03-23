@@ -33,3 +33,4 @@ class CreateBookingTable extends Migration
         Schema::dropIfExists('booking');
     }
 }
+
