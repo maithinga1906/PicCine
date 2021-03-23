@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DetailBooking extends Model
 {
-    use HasFactory;
+    // use HasFactory;
    
     public $timestamps = false;
     
