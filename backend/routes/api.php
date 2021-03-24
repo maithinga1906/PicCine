@@ -30,18 +30,18 @@ Route::post('/register','Api\UserController@register');
 Route::post('/login','Api\UserController@login');
 Route::get('/info','Api\UserController@userInfo')->middleware('auth:api');
 
-/** POSTS */
-// Route::get('/show-posts', [PostController::class,'show']);
-// Route::post('/add-post', [PostController::class,'post']);
-// Route::patch('update-post/{posts}/', [PostController::class,'update']);
-// Route::post('/upload-file', [PostController::class,'uploadFile']);
-// Route::get('/delete-post/{post}', [PostController::class,'destroy']);
 
 //Posts
-Route::get('/booking/show/{id}','Api\BookingController@show');
-
-
+Route::get('booking/index','Api\BookingController@index')->middleware('auth:api');
+Route::get('/booking/show/{id}','Api\BookingController@show')->middleware('auth:api');
 Route::post('/booking/store', 'Api\BookingController@store')->middleware('auth:api');
+Route::patch('/booking/update/{id}','Api\BookingController@update')->middleware('auth:api');
+
+
+
+
+
+
 
 /**CATEGORIES */
 // Route::get('/show-styles', [StyleController::class,'show']);

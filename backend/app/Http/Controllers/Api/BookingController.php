@@ -20,7 +20,7 @@ class BookingController extends Controller
         $booking = new Booking;
         $booking = Booking::all();
 
-        return response()->json($booking,200);
+        return response()->json($booking);
     }
 
     /**
@@ -48,7 +48,7 @@ class BookingController extends Controller
     public function show($id)
     {
         //
-        $booking=Booking::find($id)->first();
+        $booking=Booking::find($id);
         return response()->json($booking);
     }
 
@@ -62,6 +62,16 @@ class BookingController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $booking=Booking::findOrFail($id);
+
+
+        $booking->is_cancel='true';
+        $booking->code_voucher="Editbooking1";
+
+        // hiện đang không thể $request tới các trường ở input, nên phải fix data để tét
+        $booking->save();
+
+        return response()->json($booking);
     }
 
     /**
