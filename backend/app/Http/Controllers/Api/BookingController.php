@@ -3,18 +3,23 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Http\Requests\BookingRequest;
+
 use Auth;
-use Carbon\Carbon;
+
 use App\Booking;
-use App\DetailBooking;
+
 class BookingController extends Controller
 {
 
 //schedule a photoshoot
-    public function booking(Request $request)
+    public function booking(BookingRequest $request)
     {   
-        
+        $booking= new Booking;
+        $booking->fill($request->all());
+
+        return response()->json($booking);
 
     }
 }

@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\PostController;
 use App\Http\Controllers\Api\BookingController;
-use App\Http\Controllers\Api\StyleController;
+// use App\Http\Controllers\Api\StyleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,14 +24,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/clear-cache', function() {
-    Artisan::call('cache:clear');
-    return "Cache is cleared";
-});
 
-
+// 
 Route::post('/register','Api\UserController@register');
+// 
 Route::post('/login','Api\UserController@login');
+// 
 Route::get('/info','Api\UserController@userInfo')->middleware('auth:api');
 
 /** POSTS */
@@ -45,8 +43,8 @@ Route::get('/delete-post/{post}', [PostController::class,'destroy']);
 Route::post('/booking', [BookingController::class,'booking'])->middleware('auth:api');
 
 /**CATEGORIES */
-Route::get('/show-styles', [StyleController::class,'show']);
-Route::post('/add-style', [StyleController::class,'store']);
-Route::patch('update-style/{styles}/', [StyleController::class,'update']);
-Route::get('/delete-style/{styles}', [StyleController::class,'destroy']);
+// Route::get('/show-styles', [StyleController::class,'show']);
+// Route::post('/add-style', [StyleController::class,'store']);
+// Route::patch('update-style/{styles}/', [StyleController::class,'update']);
+// Route::get('/delete-style/{styles}', [StyleController::class,'destroy']);
 
