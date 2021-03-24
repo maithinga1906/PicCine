@@ -8,8 +8,10 @@ class Booking extends Model
 {
     
     
-    protected $primarykey ='id';
+ 
     protected $table ='booking';
+    protected $primarykey ='id';
+
 
     protected $fillable=[
         'id_user','id_photographer','id_combo','is_cancel','code_voucher'
@@ -22,10 +24,10 @@ class Booking extends Model
         return $this->hasMany('App\User','id_user','id');
     }
 
-    public function photographer()
-    {
-        return $this->hasMany('App\User','id_photographer','id');
-    }
+    // public function photographer()
+    // {
+    //     return $this->hasMany('App\User','id_photographer','id');
+    // }
     
     public function combo()
     {

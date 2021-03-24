@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\PostController;
 
-use App\Http\Controllers\Api\BookingController;
+use app\Http\Controllers\Api\BookingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +27,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 // 
 Route::post('/register','Api\UserController@register');
-// 
 Route::post('/login','Api\UserController@login');
-// 
 Route::get('/info','Api\UserController@userInfo')->middleware('auth:api');
 
 /** POSTS */
@@ -40,11 +38,10 @@ Route::get('/info','Api\UserController@userInfo')->middleware('auth:api');
 // Route::get('/delete-post/{post}', [PostController::class,'destroy']);
 
 //Posts
-Route::get('/find-booking/1','Api\BookingController@show');
+Route::get('/find-booking/{id}','Api\BookingController@show');
 
 
-/** BOOKING*/
-Route::post('/booking', [BookingController::class,'booking'])->middleware('auth:api');
+Route::post('/booking', 'Api\BookingController@store');//->middleware('auth:api');
 
 /**CATEGORIES */
 // Route::get('/show-styles', [StyleController::class,'show']);
