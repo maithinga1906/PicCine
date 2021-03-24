@@ -21,10 +21,12 @@ class Booking extends Model
     {
         return $this->hasMany('App\User','id_user','id');
     }
+
     public function photographer()
     {
         return $this->hasMany('App\User','id_photographer','id');
     }
+    
     public function combo()
     {
         return $this->hasMany('App\Combo','id_combo','id');

@@ -65,7 +65,6 @@ create table posts(
     title varchar(50),
     content varchar(255),
     img varchar(255),
-	id_post int,
     primary key(id),
 	foreign key(id_photographer) references users(id)
 );

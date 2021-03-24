@@ -17,9 +17,11 @@ class Combo extends Model
 
     protected $primarykey ='id';
     protected $table ='combo';
-    public function combo()
+
+
+    public function user()
     {
-        return $this->belongsTo('App\Combo','id_user','id');
+        return $this->hasMany('App\Combo','id_user','id');
     }
   
 }
