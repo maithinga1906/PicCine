@@ -3,8 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 
-class User extends Model
+class User extends Authenticatable
 {
     use HasApiTokens, Notifiable;
 
@@ -27,7 +31,7 @@ class User extends Model
     ];
 
     protected $primarykey ='id';
-    protected $table ='user';
+    protected $table ='users';
     public function roles()
     {
         return $this->hasMany('App\Roles','id_roles','id');

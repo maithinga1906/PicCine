@@ -19,6 +19,7 @@ class UserController extends Controller
 
         return response()->json($user);
     }
+    
     public function login(LoginRequest $request) {
         if(Auth::attempt([
             'email' => $request->email,
