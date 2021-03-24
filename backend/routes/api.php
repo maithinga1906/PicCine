@@ -41,7 +41,7 @@ Route::get('/info','Api\UserController@userInfo')->middleware('auth:api');
 Route::get('/find-booking/{id}','Api\BookingController@show');
 
 
-Route::post('/booking', 'Api\BookingController@store');//->middleware('auth:api');
+Route::post('/booking/store', 'Api\BookingController@store');//->middleware('auth:api');
 
 /**CATEGORIES */
 // Route::get('/show-styles', [StyleController::class,'show']);

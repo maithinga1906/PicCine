@@ -17,6 +17,9 @@ create table voucher(
     descr varchar(255),
     count int,
     denominations float,
+    is_expired boolean,
+	create_date datetime,
+    update_date datetime,
     primary key(id)
 );
 
@@ -39,6 +42,8 @@ create table users(
     phone numeric,
     namee varchar(50),
     token varchar(255),
+	create_date datetime,
+    update_date datetime,
     primary key(id),
     foreign key (id_roles) references roles(id)
 );
@@ -50,11 +55,14 @@ create table booking(
     created_time datetime,
     id_combo int,
     is_cancel boolean,
-    code_voucher varchar(50),
+    id_voucher varchar(50),
+    create_date datetime,
+    update_date datetime,
     primary key(id),
     foreign key(id_user) references users(id),
     foreign key(id_photographer) references users(id),
-    foreign key(id_combo) references combo(id)
+    foreign key(id_combo) references combo(id),
+    foreign key(id_voucher) references voucher(id)
     
 );
 
@@ -65,6 +73,8 @@ create table posts(
     title varchar(50),
     content varchar(255),
     img varchar(255),
+	create_date datetime,
+    update_date datetime,
     primary key(id),
 	foreign key(id_photographer) references users(id)
 );
