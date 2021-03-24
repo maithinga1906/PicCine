@@ -4,8 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\PostController;
+
 use App\Http\Controllers\Api\BookingController;
-// use App\Http\Controllers\Api\StyleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,11 +33,15 @@ Route::post('/login','Api\UserController@login');
 Route::get('/info','Api\UserController@userInfo')->middleware('auth:api');
 
 /** POSTS */
-Route::get('/show-posts', [PostController::class,'show']);
-Route::post('/add-post', [PostController::class,'post']);
-Route::patch('update-post/{posts}/', [PostController::class,'update']);
-Route::post('/upload-file', [PostController::class,'uploadFile']);
-Route::get('/delete-post/{post}', [PostController::class,'destroy']);
+// Route::get('/show-posts', [PostController::class,'show']);
+// Route::post('/add-post', [PostController::class,'post']);
+// Route::patch('update-post/{posts}/', [PostController::class,'update']);
+// Route::post('/upload-file', [PostController::class,'uploadFile']);
+// Route::get('/delete-post/{post}', [PostController::class,'destroy']);
+
+//Posts
+Route::get('/find-booking/1','Api\BookingController@show');
+
 
 /** BOOKING*/
 Route::post('/booking', [BookingController::class,'booking'])->middleware('auth:api');
