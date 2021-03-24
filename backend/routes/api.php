@@ -36,6 +36,7 @@ Route::get('booking/index','Api\BookingController@index')->middleware('auth:api'
 Route::get('/booking/show/{id}','Api\BookingController@show')->middleware('auth:api');
 Route::post('/booking/store', 'Api\BookingController@store')->middleware('auth:api');
 Route::patch('/booking/update/{id}','Api\BookingController@update')->middleware('auth:api');
+Route::delete('booking/destroy/{id}','Api\BookingController@destroy');
 
 
 

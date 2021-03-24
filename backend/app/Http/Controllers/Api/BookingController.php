@@ -65,11 +65,13 @@ class BookingController extends Controller
         $booking=Booking::findOrFail($id);
 
 
-        $booking->is_cancel='true';
-        $booking->code_voucher="Editbooking1";
+        $booking->is_cancel='false';
+        $booking->code_voucher="Editbooking122";
+        $booking->save();
+
 
         // hiện đang không thể $request tới các trường ở input, nên phải fix data để tét
-        $booking->save();
+        // $booking->save();
 
         return response()->json($booking);
     }
@@ -83,5 +85,9 @@ class BookingController extends Controller
     public function destroy($id)
     {
         //
+        $booking=Booking::find($id);
+        $booking->delete();
+
+        return response()->json("Delete finished");
     }
 }
