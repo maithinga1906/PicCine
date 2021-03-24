@@ -17,6 +17,10 @@ class BookingController extends Controller
     public function index()
     {
         //
+        $booking = new Booking;
+        $booking = Booking::all();
+
+        return response()->json($booking,200);
     }
 
     /**
@@ -44,6 +48,8 @@ class BookingController extends Controller
     public function show($id)
     {
         //
+        $booking=Booking::find($id)->first();
+        return response()->json($booking);
     }
 
     /**

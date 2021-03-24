@@ -38,10 +38,10 @@ Route::get('/info','Api\UserController@userInfo')->middleware('auth:api');
 // Route::get('/delete-post/{post}', [PostController::class,'destroy']);
 
 //Posts
-Route::get('/find-booking/{id}','Api\BookingController@show');
+Route::get('/booking/show/{id}','Api\BookingController@show');
 
 
-Route::post('/booking/store', 'Api\BookingController@store');//->middleware('auth:api');
+Route::post('/booking/store', 'Api\BookingController@store')->middleware('auth:api');
 
 /**CATEGORIES */
 // Route::get('/show-styles', [StyleController::class,'show']);
