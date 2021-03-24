@@ -2,12 +2,9 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
     use HasApiTokens, Notifiable;
 
@@ -29,12 +26,18 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected $primarykey ='id';
+    protected $table ='user';
+    public function roles()
+    {
+        return $this->hasMany('App\Roles','id_roles','id');
+    }
+    public function photographer_booking()
+    {
+        return $this->belongsTo('App\Booking','id_photographer','id');
+    }
+    public function user_booking()
+    {
+        return $this->belongsTo('App\Booking','id_user','id');
+    }
 }

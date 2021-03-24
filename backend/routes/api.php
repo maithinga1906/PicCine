@@ -42,7 +42,7 @@ Route::post('/upload-file', [PostController::class,'uploadFile']);
 Route::get('/delete-post/{post}', [PostController::class,'destroy']);
 
 /** BOOKING*/
-Route::post('/booking', [BookingController::class,'booking']);
+Route::post('/booking', [BookingController::class,'booking'])->middleware('auth:api');
 
 /**CATEGORIES */
 Route::get('/show-styles', [StyleController::class,'show']);
