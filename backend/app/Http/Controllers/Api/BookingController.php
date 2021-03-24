@@ -14,7 +14,7 @@ class BookingController extends Controller
 //schedule a photoshoot
     public function booking(Request $request)
     {   
-
+        
 
     }
 }

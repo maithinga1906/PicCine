@@ -19,6 +19,7 @@ class CreateBookingTable extends Migration
             $table->foreignId('id_photographer');
             $table->foreignId('id_combo');
             $table->String('is_cancel');
+            $table->String('code_voucher');
             $table->timestamps();
         });
     }

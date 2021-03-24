@@ -7,13 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class Booking extends Model
 {
     // use HasFactory;
-
-    protected $fillable=[
-        'id_user','id_photographer','id_combo','is_cancel'
-    ];
-
+    
     protected $primarykey ='id';
     protected $table ='booking';
+
+    protected $fillable=[
+        'id_user','id_photographer','id_combo','is_cancel','code_voucher'
+    ];
+
+
+
     public function user()
     {
         return $this->hasMany('App\User','id_user','id');
