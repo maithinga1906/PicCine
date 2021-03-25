@@ -32,16 +32,21 @@ class User extends Authenticatable
 
     protected $primarykey ='id';
     protected $table ='users';
+
+
     public function roles()
     {
-        return $this->hasMany('App\Roles','id_roles','id');
+        return $this->hasOne('App\Roles','id_roles');
     }
-    public function photographer_booking()
+
+
+    public function booking()
     {
-        return $this->belongsTo('App\Booking','id_photographer','id');
+        return $this->hasMany('App\Booking',' id_user');
     }
-    public function user_booking()
-    {
-        return $this->belongsTo('App\Booking','id_user','id');
+
+    public function post() {
+        return $this->hasMany('App\Post','id_photographer');
     }
+    
 }

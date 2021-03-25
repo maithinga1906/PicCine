@@ -19,9 +19,9 @@ class Combo extends Model
     protected $table ='combo';
 
 
-    public function user()
+    public function booking()
     {
-        return $this->hasMany('App\Combo','id_user','id');
+        return $this->belongsto('App\Booking');
     }
   
 }

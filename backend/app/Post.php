@@ -14,9 +14,9 @@ class Post extends Model
     protected $primarykey ='id';
     protected $table ='post';
     
-    public function photographer()
+    public function user()
     {
-        return $this->hasMany('App\User','id','id_photographer');
+        return $this->belongsto('App\User','id_photographer');
     }
 
     

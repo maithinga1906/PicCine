@@ -19,18 +19,19 @@ class Booking extends Model
 
     public function user()
     {
-        return $this->hasMany('App\User','id_user','id');
+        return $this-> beLongTo('App\User','id_user');
     }
 
-    // public function photographer()
-    // {
-    //     return $this->hasMany('App\User','id_photographer','id');
-    // }
-    
     public function combo()
     {
-        return $this->hasMany('App\Combo','id_combo','id');
+        return $this->hasOne('App\Combo','id_combo');
     }
+
+    public function voucher() {
+        return $this->hasOne('App\Voucher','id_voucher');
+    }
+
+
 }
 
 
