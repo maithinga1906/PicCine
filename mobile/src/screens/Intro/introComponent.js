@@ -1,10 +1,12 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import { StyleSheet, View, Image, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Image, Text, TouchableOpacity, Dimensions } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 //import Icon from 'react-native-vector-icons/thebook-appicon';
 //import { NavigationUtils } from '../../navigations';
+const screenWidth = Dimensions.get('screen').width;
+const screenHeight = Dimensions.get('screen').height;
 export default class IntroComponent extends React.PureComponent {
   render() {
     const { data } = this.props;
@@ -17,8 +19,9 @@ export default class IntroComponent extends React.PureComponent {
             <Image
               source={imageSource}
               style={{
-                height: 230,
-                width: 300,
+                height: screenHeight / 3,
+                width: screenWidth / 1.3,
+
               }}
             />
           </View>

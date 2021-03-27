@@ -1,9 +1,16 @@
 import { Platform } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 import Login from '../screens/Login/Login';
-import BottomNavigator from '../screens/BottomNavigator';
+import Confirm from '../screens/Schedule/Confirm';
+import WaitConfirm from '../screens/Schedule/WaitConfirm';
+import Review from '../screens/Schedule/Review';
+
 Navigation.registerComponent('login', () => Login);
+Navigation.registerComponent('review', () => Review);
+Navigation.registerComponent('wait', () => WaitConfirm);
+Navigation.registerComponent('confirm', () => Confirm);
 Navigation.registerComponent('bottomNavigator', () => BottomNavigator);
+
 
 const SIDE_MENU_ID = 'sideMenu';
 const SCREEN_OVERLAY = {
@@ -187,28 +194,67 @@ class NavigationUtils {
       },
     });
   }
-
-  // startDetailContent() {
-  //   Navigation.setRoot({
-  //     root: {
-  //       stack: {
-  //         children: [
-  //           {
-  //             component: {
-  //               name: 'Detail',
-  //               options: {
-  //                 topBar: {
-  //                   visible: false,
-  //                 },
-  //               },
-  //             },
-  //           },
-  //         ],
-  //       },
-  //     },
-  //   });
-  // }
-
+// Schedule
+  ConfirmContent() {
+    Navigation.setRoot({
+      root: {
+        stack: {
+          children: [
+            {
+              component: {
+                name: 'confirm',
+                options: {
+                  topBar: {
+                    visible: true,
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    });
+  }
+  WaitContent() {
+    Navigation.setRoot({
+      root: {
+        stack: {
+          children: [
+            {
+              component: {
+                name: 'wait',
+                options: {
+                  topBar: {
+                    visible: true,
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    });
+  }
+  ReviewContent() {
+    Navigation.setRoot({
+      root: {
+        stack: {
+          children: [
+            {
+              component: {
+                name: 'review',
+                options: {
+                  topBar: {
+                    visible: true,
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    });
+  }
   startSeeMoreContent() {
     Navigation.setRoot({
       root: {
