@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\PostController;
+use App\Http\Controllers\Api\StyleController;
 
 use app\Http\Controllers\Api\BookingController;
 
@@ -42,11 +43,20 @@ Route::delete('booking/destroy/{id}','Api\BookingController@destroy');
 
 
 
+/** POSTS */
+Route::get('/show-posts', [PostController::class,'show']);
+Route::post('/add-post', [PostController::class,'post']);
+Route::patch('update-post/{posts}/', [PostController::class,'update']);
+Route::post('/upload-file', [PostController::class,'uploadFile']);
+Route::get('/delete-post/{post}', [PostController::class,'destroy']);
+// search
+Route::post('/home/search', [PostController::class,'search']);
 
+/** BOOKING*/
+Route::post('/booking', [BookingController::class,'booking']);
 
 /**CATEGORIES */
-// Route::get('/show-styles', [StyleController::class,'show']);
-// Route::post('/add-style', [StyleController::class,'store']);
-// Route::patch('update-style/{styles}/', [StyleController::class,'update']);
-// Route::get('/delete-style/{styles}', [StyleController::class,'destroy']);
-
+Route::get('/show-styles', [StyleController::class,'show']);
+Route::post('/add-style', [StyleController::class,'store']);
+Route::patch('update-style/{styles}/', [StyleController::class,'update']);
+Route::get('/delete-style/{styles}', [StyleController::class,'destroy']);

@@ -20,8 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('id_roles');
             $table->string('phone');
             $table->string('email')->unique();
-            $table->rememberToken();
-            $table->string('name'); 
+            $table->dateTime('birthdate');
+            $table->string('address');
+            $table->string('gender');
+            $table->foreignId('role_id');
+            $table->boolean('is_online')->default(false);
             $table->timestamps();
         });
     }
