@@ -50,7 +50,7 @@ const WaitConfirm = () => {
 }
 export default WaitConfirm;
 const styles = StyleSheet.create({
-    acc:{
+  acc:{
     height: 79,
     flexDirection: 'row',
     borderBottomColor: '#A64244',
@@ -58,9 +58,8 @@ const styles = StyleSheet.create({
     },
     acc_qr:{
       height: 79,
-      width:110,
+      width:screenWidth/3,
       alignItems: 'center',
-      padding: 10,
     },
     text:{
       fontWeight: 'bold',
@@ -69,8 +68,11 @@ const styles = StyleSheet.create({
       textAlign: 'center',
     },
 //    content
+content:{
+margin:15
+},
 img:{
-    width: 60 ,
+    width: screenWidth/4.5 ,
     height:95,
     borderRadius:5
   },
@@ -83,10 +85,25 @@ img:{
   time:{
     opacity:0.5
   },
+  btn:{
+    width:screenWidth/3,
+    height: 35,
+    borderColor: '#4C6F62',
+    borderWidth: 2,
+    borderRadius: 5,
+    backgroundColor: '#4C6F62',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   txt:{
       color: '#f98866',
       fontWeight: 'bold',
       fontSize: 12,
+  },
+  btnn: {
+    width: screenWidth,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   btnn: {
     width: screenWidth,

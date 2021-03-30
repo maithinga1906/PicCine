@@ -21,7 +21,7 @@ import Profile from './src/screens/Profile/Profile';
 import QR from './src/screens/Profile/QR';
 import Review from './src/screens/Schedule/Review';
 import Null from './src/screens/Schedule/Null';
-import TabViewExample from './src/screens/Schedule/TabViewExample';
+import ConfirmSche from './src/screens/Schedule/ConfirmSche';
 import WaitConfirm from './src/screens/Schedule/WaitConfirm';
 import Developing from './src/screens/Developing';
 import SetCalendar from './src/screens/Booking/SetCalendar';
@@ -32,7 +32,7 @@ import Test from './src/screens/Test';
 
 export default class App extends Component {
   render() {
-    return <Payment/>;
+    return <WaitConfirm/>;
   }
 }
 

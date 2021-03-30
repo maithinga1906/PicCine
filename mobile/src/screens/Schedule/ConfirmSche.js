@@ -5,7 +5,7 @@ import { View, Text, Image,Dimensions, StyleSheet,ScrollView,TouchableOpacity } 
 import Icons from '../../themes/icons';
 const screenWidth = Dimensions.get('screen').width;
 import NavigationUtils from '../../navigations/Utils';
-const WaitConfirm = () => {
+const ConfirmSche = () => {
   return(
     <ScrollView>
     <View style={styles.content}>
@@ -50,7 +50,7 @@ const WaitConfirm = () => {
   </ScrollView>
 );
 }
-export default WaitConfirm;
+export default ConfirmSche;
 const styles = StyleSheet.create({
     acc:{
     height: 79,
@@ -60,9 +60,8 @@ const styles = StyleSheet.create({
     },
     acc_qr:{
       height: 79,
-      width:110,
+      width:screenWidth/3,
       alignItems: 'center',
-      padding: 10,
     },
     text:{
       fontWeight: 'bold',
@@ -71,8 +70,11 @@ const styles = StyleSheet.create({
       textAlign: 'center',
     },
 //    content
+content:{
+margin:15
+},
 img:{
-    width: 60 ,
+    width: screenWidth/4.5 ,
     height:95,
     borderRadius:5
   },
@@ -86,7 +88,7 @@ img:{
     opacity:0.5
   },
   btn:{
-    width:100,
+    width:screenWidth/3,
     height: 35,
     borderColor: '#4C6F62',
     borderWidth: 2,

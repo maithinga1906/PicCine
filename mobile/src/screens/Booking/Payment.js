@@ -115,13 +115,7 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingBottom: 15,
   },
-  btn: {
-    borderBottomColor: 'black',
-    borderWidth: 1,
-    padding: 10,
-    width: 200,
-    // flexDirection:'row',
-  },
+
   btn_set: {
     height: 45,
     borderColor: '#3C574D',

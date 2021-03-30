@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 import Login from '../screens/Login/Login';
-import Confirm from '../screens/Schedule/Confirm';
+import ConfirmSche from '../screens/Schedule/ConfirmSche';
 import WaitConfirm from '../screens/Schedule/WaitConfirm';
 import Review from '../screens/Schedule/Review';
 import Payment from '../screens/Booking/Payment';
@@ -10,7 +10,7 @@ import Transfer from '../screens/Booking/Transfer';
 Navigation.registerComponent('login', () => Login);
 Navigation.registerComponent('review', () => Review);
 Navigation.registerComponent('wait', () => WaitConfirm);
-Navigation.registerComponent('confirm', () => Confirm);
+Navigation.registerComponent('confirm', () => ConfirmSche);
 Navigation.registerComponent('bottomNavigator', () => BottomNavigator);
 Navigation.registerComponent('payment', () => Payment);
 Navigation.registerComponent('transfer', () => Transfer);
