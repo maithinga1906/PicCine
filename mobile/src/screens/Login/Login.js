@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
   loginText: {
     color: '#F4B9A7',
     fontWeight: 'bold',
-    fontSize: 15,
+    fontSize: 16,
   },
   register: {
     width: screenWidth / 3,

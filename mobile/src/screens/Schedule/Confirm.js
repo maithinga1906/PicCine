@@ -18,7 +18,7 @@ const WaitConfirm = () => {
           <Image source={Icons.tick}/>
           <Text style={styles.text}>Đã xác nhận</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.acc_qr}onPress={() => NavigationUtils.ReviewContent()}>
+        <TouchableOpacity style={styles.acc_qr} onPress={() => NavigationUtils.ReviewContent()}>
           <Image source={Icons.review}/>
           <Text style={styles.text}>Đánh giá</Text>
         </TouchableOpacity>

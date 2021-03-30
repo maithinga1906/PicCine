@@ -25,11 +25,14 @@ import TabViewExample from './src/screens/Schedule/TabViewExample';
 import WaitConfirm from './src/screens/Schedule/WaitConfirm';
 import Developing from './src/screens/Developing';
 import SetCalendar from './src/screens/Booking/SetCalendar';
+import Payment from './src/screens/Booking/Payment';
+import Transfer from './src/screens/Booking/Transfer';
+
 import Test from './src/screens/Test';
 
 export default class App extends Component {
   render() {
-    return <SetCalendar/>;
+    return <Payment/>;
   }
 }
 

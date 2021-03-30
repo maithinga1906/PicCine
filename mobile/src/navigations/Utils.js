@@ -4,12 +4,16 @@ import Login from '../screens/Login/Login';
 import Confirm from '../screens/Schedule/Confirm';
 import WaitConfirm from '../screens/Schedule/WaitConfirm';
 import Review from '../screens/Schedule/Review';
+import Payment from '../screens/Booking/Payment';
+import Transfer from '../screens/Booking/Transfer';
 
 Navigation.registerComponent('login', () => Login);
 Navigation.registerComponent('review', () => Review);
 Navigation.registerComponent('wait', () => WaitConfirm);
 Navigation.registerComponent('confirm', () => Confirm);
 Navigation.registerComponent('bottomNavigator', () => BottomNavigator);
+Navigation.registerComponent('payment', () => Payment);
+Navigation.registerComponent('transfer', () => Transfer);
 
 
 const SIDE_MENU_ID = 'sideMenu';
@@ -243,6 +247,47 @@ class NavigationUtils {
             {
               component: {
                 name: 'review',
+                options: {
+                  topBar: {
+                    visible: true,
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    });
+  }
+  // Booking
+  PaymentContent() {
+    Navigation.setRoot({
+      root: {
+        stack: {
+          children: [
+            {
+              component: {
+                name: 'payment',
+                options: {
+                  topBar: {
+                    visible: true,
+                  },
+                },
+              },
+            },
+          ],
+        },
+      },
+    });
+  }
+  TransferContent() {
+    Navigation.setRoot({
+      root: {
+        stack: {
+          children: [
+            {
+              component: {
+                name: 'transfer',
                 options: {
                   topBar: {
                     visible: true,

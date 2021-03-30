@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 
 import { Text, View, TouchableOpacity, StyleSheet, Image, Dimensions, TextInput, ScrollView } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import Icons from '../../themes/icons';
 import UselessTextInput from '../../component/Input';
+import NavigationUtils from '../../navigations/Utils';
 const screenWidth = Dimensions.get('screen').width;
 const SetCalendar = () => {
+  const [text, onChangeText] = React.useState(null);
   const [date, setDate] = useState(new Date());
   const [time, setTime] = useState(new Date());
   const [mode, setMode] = useState('date');
@@ -66,7 +67,7 @@ const SetCalendar = () => {
   };
   return (
     <ScrollView>
-      <View style={{ padding: 5, }}>
+      <View style={{ margin: 15, }}>
         <View style={styles.content}>
           <Image style={styles.img} source={require('../../assets/Images/NAG/1.jpg')} />
           <View style={{ paddingLeft: 10 }}>
@@ -78,6 +79,7 @@ const SetCalendar = () => {
         <View style={styles.date}>
           <Text style={styles.title}>Ngày và giờ chụp ảnh</Text>
           <View style={styles.section}>
+          <Text style={styles.attent}>* Chọn ngày và giờ bắt đầu</Text>
             <TouchableOpacity style={styles.btn} onPress={showDatepicker}>
               <Text style={styles.datePickerStyle} >{formatDate(date, time)}</Text>
             </TouchableOpacity>
@@ -94,7 +96,7 @@ const SetCalendar = () => {
             )}
           </View>
           <View style={styles.section}>
-            <Text>* Chọn ngày và giờ kết thúc</Text>
+            <Text style={styles.attent}>* Chọn ngày và giờ kết thúc</Text>
             <TouchableOpacity style={styles.btn} onPress={showEndDatepicker}>
               <Text style={styles.datePickerStyle} >{formatEndDate(enddate, endtime)}</Text>
             </TouchableOpacity>
@@ -110,9 +112,13 @@ const SetCalendar = () => {
               />
             )}
           </View>
-          
-          <Text>Ngày:{formatTotalDate(date,enddate)} </Text>
-          <Text>Giờ:{formatTotalTime(date,enddate)}</Text>
+            <Text>Tổng Ngày: {formatTotalDate(date,enddate)} </Text>
+            <View style={{flexDirection: 'row'}}>
+            <Text>Tổng Giờ:{formatTotalTime(time,endtime)}</Text>
+            <Text style={{ color: 'red', fontWeight: 'bold', fontSize: 16 }}>    Tổng tiền: {totaPrice(time,endtime)}.000đ</Text>
+
+            <Text> </Text>
+          </View>
         </View>
         <Text style={styles.title}>Địa chỉ chụp ảnh</Text>
         <View style={styles.section}>
@@ -123,12 +129,24 @@ const SetCalendar = () => {
             placeholder="Nhập địa chỉ chụp ảnh"
           />
         </View>
+        <TouchableOpacity style={styles.btn_set} onPress={() => NavigationUtils.PaymentContent()}>
+              <Text style={styles.txt}>Đặt lịch</Text>
+            </TouchableOpacity>
       </View>
     </ScrollView>
   );
 };
 
+const totaPrice = (endtime, time) => 
+{
+  const total = (endtime.getHours() - 7)-(time.getHours() - 7)
+  if(total<0){
+    return  - total*100;
+  }else{
+    return  total*100;
 
+  }
+};
 const formatDate = (date, time) =>
 {
   return `${date.getDate()}/${date.getMonth() +
@@ -141,16 +159,33 @@ const formatEndDate = (enddate, endtime) =>
 };
 const formatTotalDate=(date,enddate)=>
 {
-  return `${(enddate.getDate())-(date.getDate())}`;
+  return `${((enddate.getDate())-(date.getDate()))+1}`;
 };
-const formatTotalTime=(date,enddate)=>
+const formatTotalTime=(time,endtime)=>
 {
-  const diffInMs = Math.abs((enddate.getDate())-(date.getDate()));
-  return  Math.abs(diffInMs / (1000 * 60 * 60));
-  // return ` ${(endtime.getHours() - 7)-(time.getHours() - 7)}:${(endtime.getMinutes())-(time.getMinutes())}`;
+  // const diffInMs = Math.abs((enddate.getDate())-(date.getDate()));
+  // return  Math.abs(diffInMs / (1000 * 60 * 60));
+  const hours= (endtime.getHours() - 7)-(time.getHours() - 7);
+  const minutes = (endtime.getMinutes())-(time.getMinutes());
+
+  if(hours<0 && minutes<0){
+    return `${- hours}:${ - minutes}` 
+  }else if(hours<0 && minutes>-1 ){
+    return `${-hours}:${ minutes}` 
+  }else if(hours>-1 && minutes<0 ){
+    return `${-hours}:${- minutes}` 
+  }else{
+    return `${hours}:${ minutes}` 
+  }
 };
 export default SetCalendar;
 const styles = StyleSheet.create({
+  attent:{
+    color: 'red', 
+    fontSize: 16, 
+    lineHeight: 31,
+    textAlign:'left',
+},
   section: {
     alignItems: 'center',
     paddingBottom: 15,
@@ -188,5 +223,19 @@ const styles = StyleSheet.create({
   datePickerStyle: {
     paddingLeft: 30,
     fontSize: 16
+  },
+  btn_set: {
+    height: 45,
+    borderColor: '#3C574D',
+    borderWidth: 2,
+    borderRadius: 5,
+    backgroundColor: '#3C574D',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  txt: {
+    color: '#F4B9A7',
+    fontWeight: 'bold',
+    fontSize: 15,
   },
 });
