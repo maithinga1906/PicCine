@@ -27,12 +27,13 @@ import Developing from './src/screens/Developing';
 import SetCalendar from './src/screens/Booking/SetCalendar';
 import Payment from './src/screens/Booking/Payment';
 import Transfer from './src/screens/Booking/Transfer';
+import Posts from './src/screens/Post/Posts';
 
 import Test from './src/screens/Test';
 
 export default class App extends Component {
   render() {
-    return <WaitConfirm/>;
+    return <Posts/>;
   }
 }
 

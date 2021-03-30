@@ -130,8 +130,8 @@ const SetCalendar = () => {
           />
         </View>
         <TouchableOpacity style={styles.btn_set} onPress={() => NavigationUtils.PaymentContent()}>
-              <Text style={styles.txt}>Đặt lịch</Text>
-            </TouchableOpacity>
+          <Text style={styles.txt}>Đặt lịch</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -236,6 +236,6 @@ const styles = StyleSheet.create({
   txt: {
     color: '#F4B9A7',
     fontWeight: 'bold',
-    fontSize: 15,
+    fontSize: 16,
   },
 });
