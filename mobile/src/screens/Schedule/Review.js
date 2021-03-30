@@ -72,7 +72,8 @@ const styles = StyleSheet.create({
     },
 //    content
 content:{
-margin:15
+margin:15,
+ flex: 1 
 },
 img:{
     width: screenWidth/4.5 ,
@@ -80,6 +81,7 @@ img:{
     borderRadius:5
   },
   content1:{
+
     flexDirection: 'row', 
     fontSize:16,
     padding: 10,
