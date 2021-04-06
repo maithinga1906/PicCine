@@ -16,7 +16,7 @@ class PostSeeder extends Seeder
             'title'=>"Chụp ảnh ngoại cảnh",
             "content"=>"Tagore từng nói rằng, nếu như bạn yêu một người, hãy để tình yêu của bạn như ánh mặt trời bao phủ lấy người ấy và để người ấy tự do...", 
             'image'=>'/image/ngoaicanh.jpg',
-            "photography_id"=>2   ,
+            "id_photographer"=>2   ,
             "style_id"=>2,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
@@ -25,7 +25,7 @@ class PostSeeder extends Seeder
             'title'=>'Chụp ảnh cổ phong',
             "content"=>'“Đã sớm biết người không quay về nhưng ta đã nói đợi thì nhất định sẽ đợi. “',
             'image'=>'/image/cophong1.jpg',
-            "user_id"=>2  ,
+            "id_photographer"=>2  ,
             "style_id"=>1,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -39,7 +39,7 @@ class PostSeeder extends Seeder
             
             [ Rừng Nauy ]',
             'image'=>'/image/free.jpg',
-            "photography_id"=>2  ,
+            "id_photographer"=>2  ,
             "style_id"=>2,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
